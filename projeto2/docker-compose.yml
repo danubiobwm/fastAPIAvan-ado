@@ -14,7 +14,7 @@ services:
              python manage.py runserver"
 
   postgresql:
-    image: postgres:13.1-alpine
+    image: postgres
     ports:
       - 5432:5432
     env_file:
@@ -23,7 +23,7 @@ services:
       - ./var/cache/postgresql_data:/var/lib/postgresql/data
 
   postgresql-test:
-    image: postgres:13.1-alpine
+    image: postgres
     ports:
       - 5433:5433
     env_file:
