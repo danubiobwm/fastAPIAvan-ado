@@ -12,6 +12,10 @@ services:
     command: sh -c "uvicorn main:app --host 0.0.0.0 &&
              python manage.py migrate &&
              python manage.py runserver"
+    depends_on:
+      - postgresql
+    env_file:
+      - ./.env
 
   postgresql:
     image: postgres
@@ -20,7 +24,7 @@ services:
     env_file:
       - ./.env
     volumes:
-      - ./var/cache/postgresql_data:/var/lib/postgresql/data
+      - ./var/cache/postgres_data:/var/lib/postgresql/data
 
   postgresql-test:
     image: postgres
