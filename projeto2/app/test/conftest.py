@@ -33,7 +33,7 @@ def categories_on_db(db_session):
 
     for category in categories:
         db_session.refresh(category)
-    
+
     yield categories
 
     for category in categories:
@@ -85,7 +85,7 @@ def products_on_db(db_session):
 
     for product in products:
         db_session.refresh(product)
-    
+
     yield products
 
     for product in products:
@@ -105,7 +105,7 @@ def user_on_db(db_session):
     db_session.add(user)
     db_session.commit()
     db_session.refresh(user)
-    
+
     yield user
 
     db_session.delete(user)

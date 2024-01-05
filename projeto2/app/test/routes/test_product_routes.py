@@ -65,7 +65,7 @@ def test_update_product_route(db_session, product_on_db):
     assert response.status_code == status.HTTP_200_OK
 
     db_session.refresh(product_on_db)
-    
+
     product_on_db.name == 'Updated camisa'
     product_on_db.slug == 'updated-camisa'
     product_on_db.price == 23.88
