@@ -2,6 +2,7 @@ from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, Float, fun
 from sqlalchemy.orm import relationship
 from app.db.base import Base
 
+
 class Category(Base):
     __tablename__ = 'categories'
     id = Column('id', Integer, primary_key=True, autoincrement=True)
@@ -9,8 +10,10 @@ class Category(Base):
     slug = Column('slug', String, nullable=False)
     products = relationship('Product', back_populates='category')
 
+
 class Product(Base):
     __tablename__ = 'products'
+
     id = Column('id', Integer, primary_key=True, autoincrement=True)
     name = Column('name', String, nullable=False)
     slug = Column('slug', String, nullable=False)
@@ -22,4 +25,8 @@ class Product(Base):
     category = relationship('Category', back_populates='products')
 
 
-
+class User(Base):
+    __tablename__ = 'users'
+    id = Column('id', Integer, primary_key=True, autoincrement=True)
+    username = Column('username', String, nullable=False, unique=True)
+    password = Column('password', String, nullable=False)
