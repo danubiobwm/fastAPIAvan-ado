@@ -1,8 +1,8 @@
 FROM python:3.11-slim-buster
 
-ENV PYTHONUNBUFFERED=1
-ENV PATH="/root/.local/bin:${PATH}"
-ENV PYTHONPATH="/"
+ENV PYTHONUNBUFFERED 1
+ENV PATH="/root/.local/bin:$PATH"
+ENV PYTHONPATH='/'
 
 COPY ./poetry.lock /
 COPY ./pyproject.toml /
